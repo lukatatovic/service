@@ -43,7 +43,7 @@ public class CarService {
      * Metoda za perzistiranje automobila u sistem kroz trajno cuvanje.
      * Novi automobil se cuva u bazi podataka.
      * @param car automobil koji se treba perzistirati.
-     * @return Perzistirani automobil.
+     * @return perzistirani automobil.
      * @throws Exception ako automobil sa istom markom, brendom i brojem konjskih snaga postoji u bazi podataka.
      */
     public Car addNewCar(Car car) throws Exception{
