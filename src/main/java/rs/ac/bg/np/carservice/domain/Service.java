@@ -86,7 +86,7 @@ public class Service {
 
     /**
      * Vraca naziv servisa.
-     * @return name kao String,.
+     * @return name kao String.
      */
     public String getName() {
         return name;
@@ -108,7 +108,7 @@ public class Service {
     }
     /**
      * Vraca adresu servisa.
-     * @return adress kao String,.
+     * @return adress kao String.
      */
     public String getAdress() {
         return adress;
@@ -128,7 +128,7 @@ public class Service {
     }
     /**
      * Vraca broj telefona servisa.
-     * @return phoneNumber kao String,.
+     * @return phoneNumber kao String.
      */
     public String getPhoneNumber() {
         return phoneNumber;
