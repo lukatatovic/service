@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 public class Owner {
     /**
-     * Automatski generisan identifikator vlasnika koji je unikatana i identifikuje objekat u bazi podataka.
+     * Automatski generisan identifikator vlasnika koji je unikatan i identifikuje objekat u bazi podataka.
      */
     @Id
     @GeneratedValue

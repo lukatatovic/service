@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 public class Car {
     /**
-     * Automatski generisan identifikator automobila koji je unikatana i identifikuje objekat u bazi podataka.
+     * Automatski generisan identifikator automobila koji je unikatan i identifikuje objekat u bazi podataka.
      */
     @Id
     @GeneratedValue

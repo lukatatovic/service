@@ -16,7 +16,7 @@ import java.util.Set;
 @Entity
 public class Service {
     /**
-     * Automatski generisan identifikator servisa koji je unikatana i identifikuje objekat u bazi podataka.
+     * Automatski generisan identifikator servisa koji je unikatan i identifikuje objekat u bazi podataka.
      */
     @Id
     @GeneratedValue
