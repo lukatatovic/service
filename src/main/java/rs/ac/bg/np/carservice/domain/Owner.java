@@ -7,7 +7,7 @@ import java.util.Set;
  * Entitet u bazi podataka/domenska klasa vlasnika.
  *
  * Koristi se da predstavi vezu sa tabelom "owner" iz baze podataka i kao domenski objekat.
- * Pamti sve bitne informacije o servisu to jest ownerID, ime, prezime, broj telefpna i skup automobila vlasnika.
+ * Pamti sve bitne informacije o vlasniku to jest ownerID, ime, prezime, broj telefpna i skup automobila vlasnika.
  *
  * @author Luka
  */
@@ -82,7 +82,7 @@ public class Owner {
     }
     /**
      * Vraca ime vlasnika.
-     * @return name kao String,.
+     * @return name kao String.
      */
     public String getName() {
         return name;
@@ -104,7 +104,7 @@ public class Owner {
     }
     /**
      * Vraca prezime vlasnika.
-     * @return surname kao String,.
+     * @return surname kao String.
      */
     public String getSurname() {
         return surname;
@@ -125,7 +125,7 @@ public class Owner {
     }
     /**
      * Vraca broj telefona vlasnika.
-     * @return phoneNumber kao String,.
+     * @return phoneNumber kao String.
      */
     public String getPhoneNumber() {
         return phoneNumber;

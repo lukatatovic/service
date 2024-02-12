@@ -5,7 +5,7 @@ import jakarta.persistence.*;
  * Entitet u bazi podataka/domenska klasa dela
  *
  * Koristi se da predstavi vezu sa tabelom "part" iz baze podataka i kao domenski objekat.
- * Pamti sve bitne informacije o servisu to jest partID, naziv, cena, marka automobila za koju je deo, model automobila za koj je deo i dobavljaca .
+ * Pamti sve bitne informacije o delu to jest partID, naziv, cena, marka automobila za koju je deo, model automobila za koj je deo i dobavljaca .
  *
  * @author Luka
  */
