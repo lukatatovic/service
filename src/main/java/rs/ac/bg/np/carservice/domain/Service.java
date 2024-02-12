@@ -9,7 +9,7 @@ import java.util.Set;
  * Entitet u bazi podataka/domenska klasa servisa
  *
  * Koristi se da predstavi vezu sa tabelom "service" iz baze podataka i kao domenski objekat.
- * Pamti sve bitne informacije o servisu to jest serviceID, ime, adresa i broj telefpna.
+ * Pamti sve bitne informacije o servisu to jest serviceID, naziv, adresa i broj telefpna.
  *
  * @author Luka
  */
