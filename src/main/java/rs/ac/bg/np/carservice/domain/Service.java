@@ -9,7 +9,7 @@ import java.util.Set;
  * Entitet u bazi podataka/domenska klasa servisa
  *
  * Koristi se da predstavi vezu sa tabelom "service" iz baze podataka i kao domenski objekat.
- * Pamti sve bitne informacije o servisu to jest serviceID, naziv, adresa i broj telefpna.
+ * Pamti sve bitne informacije o servisu to jest serviceID, naziv, adresa, broj telefpna i skup servisera servisa.
  *
  * @author Luka
  */
@@ -160,7 +160,7 @@ public class Service {
      * Postavlja servicere na zadatu vrednost.
      *
      * @param servicers kao skup servisera servisa.
-     * @throws IllegalArgumentException akoj skup servisera null.
+     * @throws IllegalArgumentException ako je skup servisera null.
      */
     public void setServicers(Set<Servicer> servicers) {
         if(servicers!=null) {
