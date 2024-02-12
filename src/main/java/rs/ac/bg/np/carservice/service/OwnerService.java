@@ -11,7 +11,7 @@ import java.util.Optional;
  * Klasa sluzi da manipulise i upravlja modelom i podacima vezanim sa vlasnikom.
  *
  * Omogucava pravljenje novog vlasnika i vracanje pojedinacnog vlasnika.
- *
+ * @author Luka
  */
 
 

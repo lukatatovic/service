@@ -14,7 +14,7 @@ import java.util.Optional;
  * Klasa sluzi da manipulise i upravlja modelom i podacima vezanim sa delom.
  *
  * Omogucava vracanje svih delova, pravljenje novog dela i povezivanje dobavljaca sa delom.
- *
+ * @author Luka
  */
 
 @Service
