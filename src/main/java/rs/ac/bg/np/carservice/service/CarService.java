@@ -10,16 +10,42 @@ import rs.ac.bg.np.carservice.repository.OwnerRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Sadrzi poslovnu logiku rada sa automobilom.
+ * Klasa sluzi da manipulise i upravlja modelom i podacima vezanim sa automobilom.
+ *
+ * Omogucava vracanje svih automobila, pravljenje novog automobila i povezivanje vlasnika sa automobilom.
+ *
+ */
+
 @Service
 public class CarService {
+    /**
+     * Broker baze podataka koji je posrednik ka tabeli car.
+     */
     @Autowired
     private CarRepository carRepository;
+    /**
+     * Broker baze podataka koji je posrednik ka tabeli owner.
+     */
     @Autowired
     private OwnerRepository ownerRepository;
+
+    /**
+     * Metoda koja vraca listu svih automobila.
+     * @return List<Car> lista svih automobila.
+     */
     public List<Car> getAllCars() {
         return carRepository.findAll();
     }
 
+    /**
+     * Metoda za perzistiranje automobila u sistem kroz trajno cuvanje.
+     * Novi automobil se cuva u bazi podataka.
+     * @param car automobil koji se treba perzistirati.
+     * @return Perzistirani automobil.
+     * @throws Exception ako automobil sa istom markom, brendom i brojem konjskih snaga postoji u bazi podataka.
+     */
     public Car addNewCar(Car car) throws Exception{
         Optional<Car> optionalCar= carRepository.findCarByBrandAndModelAndHorsePower(car.getBrand(),car.getModel(),car.getHorsePower());
         if(optionalCar.isPresent()){
@@ -29,6 +55,13 @@ public class CarService {
         return car;
     }
 
+    /**
+     * Metoda koja vraca automobil zajedno sa vlasnikom sa kojim je povezan.
+     * @param carId ID automobila.
+     * @param ownerId ID vlasnika sa kojim ce se automobil povezati.
+     * @return automobil sa vozacem.
+     * @throws Exception ako automobil ili vlasnik ne postoje u bazi podataka.
+     */
     public Car addOwnerForCar(long carId, long ownerId)throws Exception {
         Optional<Car> optionalCar= carRepository.findById(carId);
         Optional<Owner> optionalOwner=ownerRepository.findById(ownerId);
