@@ -11,10 +11,7 @@ import rs.ac.bg.np.carservice.domain.Servicer;
 import rs.ac.bg.np.carservice.repository.ServiceRepository;
 import rs.ac.bg.np.carservice.repository.ServicerRepository;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
@@ -91,6 +88,28 @@ class ServicerServiceTest {
 
         Mockito.when(servicerRepository.findById(servicer.getServicerID())).thenReturn(Optional.of(servicer));
         Mockito.when(serviceRepository.findById(service.getServiceID())).thenReturn(Optional.empty());
+        assertThrows(Exception.class,()->{servicerService.addServiceForServicer(service.getServiceID(),servicer.getServicerID());});
+    }
+    @Test
+    void addServiceForServicerExceptionAnotherService() throws Exception {
+        Servicer servicer= new Servicer(1L,"Luka","Tatovic",null,null);
+        Service service= new Service(1L,"Servis 1","Adresa 1","0659318321",new HashSet<>());
+        Service service2= new Service(2L,"Servis 2","Adresa 2","0659322222",new HashSet<>());
+        servicer.setService(service2);
+        Mockito.when(servicerRepository.findById(servicer.getServicerID())).thenReturn(Optional.of(servicer));
+        Mockito.when(serviceRepository.findById(service.getServiceID())).thenReturn(Optional.of(service));
+        assertThrows(Exception.class,()->{servicerService.addServiceForServicer(service.getServiceID(),servicer.getServicerID());});
+    }
+    @Test
+    void addServiceForServicerExceptionServiceAlreadyWorking() throws Exception {
+        Servicer servicer= new Servicer(1L,"Luka","Tatovic",null,null);
+        Service service= new Service(1L,"Servis 1","Adresa 1","0659318321",null);
+        Set<Servicer> servicers= new HashSet<>();
+        servicers.add(servicer);
+        service.setServicers(servicers);
+        servicer.setService(service);
+        Mockito.when(servicerRepository.findById(servicer.getServicerID())).thenReturn(Optional.of(servicer));
+        Mockito.when(serviceRepository.findById(service.getServiceID())).thenReturn(Optional.of(service));
         assertThrows(Exception.class,()->{servicerService.addServiceForServicer(service.getServiceID(),servicer.getServicerID());});
     }
 }
