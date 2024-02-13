@@ -106,7 +106,7 @@ public class Servicer {
      * @throws IllegalArgumentException ako je ime prazan String ili null.
      */
     public void setName(String name) {
-        if(!(name.isEmpty()) && name !=null ){
+        if(name!=null &&!(name.isEmpty())  ){
             this.name = name;
         }else {
             throw new IllegalArgumentException("Ime ne sme biti prazno");
@@ -126,7 +126,7 @@ public class Servicer {
      * @throws IllegalArgumentException ako je prezime prazan String ili null.
      */
     public void setSurname(String surname) {
-        if(!surname.isEmpty() && surname !=null){
+        if(surname!=null && !surname.isEmpty() ){
             this.surname = surname;
         }else{
             throw new IllegalArgumentException("Prezime ne sme biti prazno");

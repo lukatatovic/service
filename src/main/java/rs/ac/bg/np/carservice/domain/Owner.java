@@ -94,7 +94,7 @@ public class Owner {
      * @throws IllegalArgumentException ako je ime prazan String ili null.
      */
     public void setName(String name) {
-        if(!name.isEmpty() && name!=null) {
+        if(name!=null && !name.isEmpty()) {
             this.name = name;
         }
         else{
@@ -116,7 +116,7 @@ public class Owner {
      * @throws IllegalArgumentException ako je prezime prazan String ili null.
      */
     public void setSurname(String surname) {
-        if(!surname.isEmpty() && surname!=null) {
+        if(surname!=null && !surname.isEmpty()) {
             this.surname = surname;
         }
         else{
@@ -137,7 +137,7 @@ public class Owner {
      * @throws IllegalArgumentException ako je broj telefona prazan String ili null.
      */
     public void setPhoneNumber(String phoneNumber) {
-        if(!phoneNumber.isEmpty() && phoneNumber!=null) {
+        if(phoneNumber!=null && !phoneNumber.isEmpty()) {
             this.phoneNumber = phoneNumber;
         }else{
             throw new IllegalArgumentException("Broj telefona ne moze biti prazan");

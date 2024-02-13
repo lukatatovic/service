@@ -83,7 +83,7 @@ public class Suplier {
      * @throws IllegalArgumentException ako je naziv prazan String ili null.
      */
     public void setName(String name) {
-        if(!name.isEmpty() && name!=null) {
+        if(name!=null && name.isEmpty() ) {
             this.name = name;
         }
         else{
@@ -104,7 +104,7 @@ public class Suplier {
      * @throws IllegalArgumentException ako je adresa prazan String ili null.
      */
     public void setAdress(String adress) {
-        if(!adress.isEmpty() && adress!=null) {
+        if(adress!=null &&!adress.isEmpty() ) {
             this.adress = adress;
         }
         else{
@@ -125,7 +125,7 @@ public class Suplier {
      * @throws IllegalArgumentException ako je broj telefona prazan String ili null.
      */
     public void setPhoneNumber(String phoneNumber) {
-        if(!phoneNumber.isEmpty() && phoneNumber!=null) {
+        if(phoneNumber!=null &&!phoneNumber.isEmpty() ) {
             this.phoneNumber = phoneNumber;
         }else{
             throw new IllegalArgumentException("Broj telefona ne moze biti prazan");

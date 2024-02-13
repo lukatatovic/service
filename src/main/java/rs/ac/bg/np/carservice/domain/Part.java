@@ -97,7 +97,7 @@ public class Part {
      * @throws IllegalArgumentException ako je naziv prazan String ili null.
      */
     public void setName(String name) {
-        if(!name.isEmpty() && name!=null) {
+        if(name!=null && !name.isEmpty()) {
             this.name = name;
         }
         else{
@@ -138,7 +138,7 @@ public class Part {
      * @throws IllegalArgumentException ako je marka prazan String ili null.
      */
     public void setBrand(String brand) {
-        if(!brand.isEmpty()&&brand!=null) {
+        if(brand!=null && !brand.isEmpty()) {
             this.brand = brand;
         }else {
             throw new IllegalArgumentException("Marka ne sme biti prazna");
@@ -158,7 +158,7 @@ public class Part {
      * @throws IllegalArgumentException ako je model prazan String ili null.
      */
     public void setModel(String model) {
-        if(!model.isEmpty()&&model!=null) {
+        if(model!=null && !model.isEmpty()) {
             this.model = model;
         }else {
             throw new IllegalArgumentException("Model ne sme biti prazan");

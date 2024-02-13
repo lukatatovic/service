@@ -116,7 +116,7 @@ public class Car {
      * @throws IllegalArgumentException ako je marka prazan String ili null.
      */
     public void setBrand(String brand) {
-        if(!brand.isEmpty()&&brand!=null) {
+        if(brand!=null && !brand.isEmpty()) {
             this.brand = brand;
         }else {
             throw new IllegalArgumentException("Marka ne sme biti prazna");
@@ -138,7 +138,7 @@ public class Car {
      * @throws IllegalArgumentException ako je model prazan String ili null.
      */
     public void setModel(String model) {
-        if(!model.isEmpty()&&model!=null) {
+        if(model!=null && !model.isEmpty()) {
             this.model = model;
         }else {
             throw new IllegalArgumentException("Model ne sme biti prazan");
@@ -158,7 +158,7 @@ public class Car {
      * @throws IllegalArgumentException ako su registarske tablice prazan String ili null.
      */
     public void setLicensePlates(String licensePlates) {
-        if(!licensePlates.isEmpty()&&licensePlates!=null) {
+        if(licensePlates!=null && !licensePlates.isEmpty()) {
             this.licensePlates = licensePlates;
         }else {
             throw new IllegalArgumentException("Tablice ne smeju biti prazne");
@@ -178,7 +178,7 @@ public class Car {
      * @throws IllegalArgumentException ako je tip goriva prazan String ili null.
      */
     public void setFuel(String fuel) {
-        if(!fuel.isEmpty()&&fuel!=null) {
+        if(fuel!=null && !fuel.isEmpty()) {
             this.fuel = fuel;
         }else {
             throw new IllegalArgumentException("Gorivo ne sme biti prazno");
