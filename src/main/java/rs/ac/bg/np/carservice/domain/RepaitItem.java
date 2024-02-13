@@ -82,14 +82,9 @@ public class RepaitItem {
     /**
      * Postavlja popravku na zadatu vrednost.
      * @param repair popravka koja sadrzi stavku popravke.
-     * @throws IllegalArgumentException ako je popravka null.
      */
     public void setRepair(Repair repair) {
-        if(repair!=null) {
             this.repair = repair;
-        }else {
-            throw new IllegalArgumentException("Popravka ne moze biti null");
-        }
     }
 
     /**

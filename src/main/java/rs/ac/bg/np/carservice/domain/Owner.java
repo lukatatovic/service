@@ -159,11 +159,6 @@ public class Owner {
      * @throws IllegalArgumentException ako je skup automobila null.
      */
     public void setCars(Set<Car> cars) {
-        if(cars==null) {
             this.cars = cars;
-        }else{
-            throw new IllegalArgumentException("Vlasnik mora da ima bar 1 automobil");
-        }
-
     }
 }

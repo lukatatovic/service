@@ -217,14 +217,9 @@ public class Car {
      * Postavlja vlasnika na zadatu vrednost.
      *
      * @param owner vlasnik automobila.
-     * @throws IllegalArgumentException ako je vlasnik null.
      */
     public void setOwner(Owner owner) {
-        if(owner!=null) {
             this.owner = owner;
-        }else{
-            throw new IllegalArgumentException("Vlasnik ne sme biti null");
-        }
     }
 
     /**
@@ -240,13 +235,8 @@ public class Car {
      * Postavlja repairs na zadatu vrednost.
      *
      * @param repairs kao skup svih popravkih automobila.
-     * @throws IllegalArgumentException ako je skup popravki null.
      */
     public void setRepairs(Set<Repair> repairs) {
-        if(repairs!=null) {
             this.repairs = repairs;
-        }else {
-            throw new IllegalArgumentException("Popravke ne mogu biti null");
-        }
     }
 }

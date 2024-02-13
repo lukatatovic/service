@@ -179,10 +179,6 @@ public class Part {
      * @throws IllegalArgumentException ako je dobavljac null.
      */
     public void setSuplier(Suplier suplier) {
-        if(suplier!=null) {
             this.suplier = suplier;
-        }else {
-            throw new IllegalArgumentException("Dobavljac ne sme biti null");
-        }
     }
 }

@@ -146,7 +146,6 @@ public class Servicer {
      * Postavlja servis u kojem serviser radi na zadatu vrednost.
      *
      * @param service servis u kojem serviser radi
-     * @throws IllegalArgumentException ako je servis null.
      */
     public void setService(Service service) {
             this.service = service;
@@ -162,14 +161,9 @@ public class Servicer {
 
     /**
      * Postavlja popravke na zadaty vrednost.
-     * @param repairs skup popravki koje je serviser izvrsio
-     * @throws IllegalArgumentException ako su popravke null.
+     * @param repairs skup popravki koje je serviser izvrsio.
      */
     public void setRepairs(Set<Repair> repairs) {
-        if(repairs!=null) {
             this.repairs = repairs;
-        }else {
-            throw new IllegalArgumentException("Popravke ne mogu biti null");
-        }
     }
 }

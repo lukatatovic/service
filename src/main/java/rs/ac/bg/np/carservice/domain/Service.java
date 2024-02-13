@@ -160,14 +160,9 @@ public class Service {
      * Postavlja servicere na zadatu vrednost.
      *
      * @param servicers kao skup servisera servisa.
-     * @throws IllegalArgumentException ako je skup servisera null.
      */
     public void setServicers(Set<Servicer> servicers) {
-        if(servicers!=null) {
             this.servicers = servicers;
-        }else{
-            throw new IllegalArgumentException("Serviseri ne mogu biti null");
-        }
     }
 
     /**
