@@ -26,12 +26,12 @@ class CarTest {
 
     @Test
     void setCarID() {
-        car.setCarID(1);
-        assertEquals(1,car.getCarID());
+        car.setCarID(1L);
+        assertEquals(1L,car.getCarID());
     }
     @Test
     void setCarIDException() {
-        assertThrows(IllegalArgumentException.class,()->car.setCarID(0));
+        assertThrows(IllegalArgumentException.class,()->car.setCarID(0L));
     }
 
     @Test

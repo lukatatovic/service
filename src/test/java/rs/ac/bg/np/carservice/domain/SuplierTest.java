@@ -22,12 +22,12 @@ class SuplierTest {
 
     @Test
     void setSuplierId() {
-        suplier.setSuplierId(1);
-        assertEquals(1,suplier.getSuplierId());
+        suplier.setSuplierId(1L);
+        assertEquals(1L,suplier.getSuplierId());
     }
     @Test
     void setSuplierIdException() {
-        assertThrows(IllegalArgumentException.class,()-> suplier.setSuplierId(0));
+        assertThrows(IllegalArgumentException.class,()-> suplier.setSuplierId(0L));
     }
 
     @Test
