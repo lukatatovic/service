@@ -103,6 +103,7 @@ public class RepairItemService {
         int newPrice = price+repairPrice;
         repair.setPrice(newPrice);
         repairRepository.save(repair);
-        return repairItemRepository.save(repaitItem);
+        repairItemRepository.save(repaitItem);
+        return repaitItem;
     }
 }
