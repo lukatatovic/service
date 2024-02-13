@@ -39,6 +39,10 @@ class PartTest {
     void setNameEmpty() {
         assertThrows(IllegalArgumentException.class,()-> part.setName(""));
     }
+    @Test
+    void setNameNull() {
+        assertThrows(IllegalArgumentException.class,()-> part.setName(null));
+    }
 
     @Test
     void setPrice() {
@@ -59,13 +63,24 @@ class PartTest {
     void setBrandEmpty() {
         assertThrows(IllegalArgumentException.class,()-> part.setBrand(""));
     }
+    @Test
+    void setBrandNull() {
+        assertThrows(IllegalArgumentException.class,()-> part.setBrand(null));
+    }
 
     @Test
     void setModel() {
         part.setModel("Punto");
         assertEquals("Punto",part.getModel());
     }
-
+    @Test
+    void setModelEmpty() {
+        assertThrows(IllegalArgumentException.class,()-> part.setModel(""));
+    }
+    @Test
+    void setModelNull() {
+        assertThrows(IllegalArgumentException.class,()-> part.setModel(null));
+    }
     @Test
     void setSuplier() {
         part.setSuplier(new Suplier(1L,"Tifa","Adresa 1","0685327394"));

@@ -67,6 +67,10 @@ class SuplierTest {
     void setPhoneNumberEmpty() {
         assertThrows(IllegalArgumentException.class,()->suplier.setPhoneNumber(""));
     }
+    @Test
+    void setPhoneNumberNull() {
+        assertThrows(IllegalArgumentException.class,()->suplier.setPhoneNumber(null));
+    }
     @ParameterizedTest
     @CsvSource({
             "1,Tifa,Adresa 1,0694173942",

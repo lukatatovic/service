@@ -43,6 +43,10 @@ class OwnerTest {
     void setNameEmpty() {
         assertThrows(IllegalArgumentException.class,()->owner.setName(""));
     }
+    @Test
+    void setNameNull() {
+        assertThrows(IllegalArgumentException.class,()->owner.setName(null));
+    }
 
     @Test
     void setSurname() {
@@ -54,6 +58,10 @@ class OwnerTest {
         assertThrows(IllegalArgumentException.class,()->owner.setSurname(""));
     }
     @Test
+    void setSurnameNull() {
+        assertThrows(IllegalArgumentException.class,()->owner.setSurname(null));
+    }
+    @Test
     void setPhoneNumber() {
         owner.setPhoneNumber("0684810328");
         assertEquals("0684810328",owner.getPhoneNumber());
@@ -61,6 +69,10 @@ class OwnerTest {
     @Test
     void setPhoneNumberEmpty() {
         assertThrows(IllegalArgumentException.class,()->owner.setPhoneNumber(""));
+    }
+    @Test
+    void setPhoneNumberNull() {
+        assertThrows(IllegalArgumentException.class,()->owner.setPhoneNumber(null));
     }
 
     @Test

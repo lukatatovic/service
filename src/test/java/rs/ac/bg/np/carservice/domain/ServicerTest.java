@@ -43,6 +43,10 @@ class ServicerTest {
     void setNameEmpty() {
         assertThrows(IllegalArgumentException.class,()-> servicer.setName(""));
     }
+    @Test
+    void setNameNull() {
+        assertThrows(IllegalArgumentException.class,()-> servicer.setName(null));
+    }
 
     @Test
     void setSurname() {
@@ -52,6 +56,10 @@ class ServicerTest {
     @Test
     void setSurnameEmpty() {
         assertThrows(IllegalArgumentException.class,()-> servicer.setSurname(""));
+    }
+    @Test
+    void setSurnameNull() {
+        assertThrows(IllegalArgumentException.class,()-> servicer.setSurname(null));
     }
 
     @Test
@@ -94,5 +102,17 @@ class ServicerTest {
         assertEquals(resultService,servicer.getService());
         assertEquals(surname,servicer.getSurname());
         assertEquals(resultRepair,servicer.getRepairs());
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "Luka,Tatovic",
+            "Uros,Tatovic"
+
+    })
+    void parameterizedConstrictor(String name, String surname){
+        servicer.setName(name);
+        servicer.setSurname(surname);
+        assertEquals(name,servicer.getName());
+        assertEquals(surname,servicer.getSurname());
     }
 }

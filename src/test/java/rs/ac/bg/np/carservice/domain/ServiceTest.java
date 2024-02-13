@@ -42,6 +42,10 @@ class ServiceTest {
     void setNameEmpty() {
         assertThrows(IllegalArgumentException.class,()-> service.setName(""));
     }
+    @Test
+    void setNameNull() {
+        assertThrows(IllegalArgumentException.class,()-> service.setName(null));
+    }
 
     @Test
     void setAdress() {
@@ -53,6 +57,10 @@ class ServiceTest {
         assertThrows(IllegalArgumentException.class,()-> service.setAdress(""));
     }
     @Test
+    void setAdressNull() {
+        assertThrows(IllegalArgumentException.class,()-> service.setAdress(null));
+    }
+    @Test
     void setPhoneNumber() {
         service.setPhoneNumber("068302803892");
         assertEquals("068302803892",service.getPhoneNumber());
@@ -60,6 +68,10 @@ class ServiceTest {
     @Test
     void setPhoneNumberEmpty() {
         assertThrows(IllegalArgumentException.class,()-> service.setPhoneNumber(""));
+    }
+    @Test
+    void setPhoneNumberNull() {
+        assertThrows(IllegalArgumentException.class,()-> service.setPhoneNumber(null));
     }
     @Test
     void setServicers() {

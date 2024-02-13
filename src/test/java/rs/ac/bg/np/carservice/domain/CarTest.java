@@ -43,6 +43,10 @@ class CarTest {
     void setBrandEmpty() {
         assertThrows(IllegalArgumentException.class,()->car.setBrand(""));
     }
+    @Test
+    void setBrandNull() {
+        assertThrows(IllegalArgumentException.class,()->car.setBrand(null));
+    }
 
     @Test
     void setModel() {
@@ -52,6 +56,10 @@ class CarTest {
     @Test
     void setModelEmpty() {
         assertThrows(IllegalArgumentException.class,()->car.setModel(""));
+    }
+    @Test
+    void setModelNull() {
+        assertThrows(IllegalArgumentException.class,()->car.setModel(null));
     }
 
     @Test
@@ -63,6 +71,10 @@ class CarTest {
     void setLicensePlatesEmpty() {
         assertThrows(IllegalArgumentException.class,()->car.setLicensePlates(""));
     }
+    @Test
+    void setLicensePlatesNull() {
+        assertThrows(IllegalArgumentException.class,()->car.setLicensePlates(null));
+    }
 
     @Test
     void setFuel() {
@@ -72,6 +84,10 @@ class CarTest {
     @Test
     void setFuelEmpty() {
         assertThrows(IllegalArgumentException.class,()->car.setFuel(""));
+    }
+    @Test
+    void setFuelNull() {
+        assertThrows(IllegalArgumentException.class,()->car.setFuel(null));
     }
 
     @Test

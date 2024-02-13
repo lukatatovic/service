@@ -77,6 +77,21 @@ class RepairItemServiceTest {
         Set<RepaitItem> items= new HashSet<>();
         items.add(repaitItem1);
         repair.setItems(items);
+        Optional<RepaitItem> repaitItem= repairItemRepository.findByPart(part1);
+        //Mockito.when(repairItemRepository.findByPart(repaitItem1.getPart())).thenReturn(Optional.of(repaitItem1));
+        //assertThrows(Exception.class,()->{repaitItem1.equals(repaitItem);});
+        //Mockito.verify(repairItemRepository,Mockito.times(2)).findByPart(repaitItem1.getPart());
+
+    }
+    @Test
+    void addNewRepairtItemExceptionAlreadyExisting() throws Exception {
+        Suplier suplier1= new Suplier(1L,"Tifa","Adresa 1","0649284928");
+        Part part1= new Part(4L,"Auspuh",1000,"Fiat","Evo",suplier1);
+        Repair repair= new Repair(1L,null,null,new Date(),3000,new HashSet<>());
+        RepaitItem repaitItem1= new RepaitItem(1L,repair,part1);
+        Set<RepaitItem> items= new HashSet<>();
+        items.add(repaitItem1);
+        repair.setItems(items);
         assertThrows(Exception.class,()->{repairItemService.addNewRepairtItem(repaitItem1,part1.getPartID());});
 
     }
@@ -132,6 +147,10 @@ class RepairItemServiceTest {
         RepaitItem repaitItem1= new RepaitItem(1L,null,part1);
         Car car= new Car(1L,"Fiat","Evo","BG231EE","Dizel",80,null,new HashSet<>());
         repair.setCar(car);
+
+        Mockito.when(repairItemRepository.findById(repaitItem1.getRepaiItemId())).thenReturn(Optional.of(repaitItem1));
+        Mockito.when(repairRepository.findById(repair.getRepairID())).thenReturn(Optional.of(repair));
+
         assertThrows(Exception.class,()->repairItemService.addRepairForRepairItem(repaitItem1.getRepaiItemId(),repair.getRepairID()));
 
     }
@@ -143,6 +162,27 @@ class RepairItemServiceTest {
         RepaitItem repaitItem1= new RepaitItem(1L,null,part1);
         Car car= new Car(1L,"Fiat","Evo","BG231EE","Dizel",80,null,new HashSet<>());
         repair.setCar(car);
+
+        Mockito.when(repairItemRepository.findById(repaitItem1.getRepaiItemId())).thenReturn(Optional.of(repaitItem1));
+        Mockito.when(repairRepository.findById(repair.getRepairID())).thenReturn(Optional.of(repair));
+
+        assertThrows(Exception.class,()->repairItemService.addRepairForRepairItem(repaitItem1.getRepaiItemId(),repair.getRepairID()));
+
+    }
+    @Test
+    void addRepairForRepairItemExceptionAlreadyExcisting() throws Exception {
+        Suplier suplier1= new Suplier(1L,"Tifa","Adresa 1","0649284928");
+        Part part1= new Part(4L,"Auspuh",1000,"Fiat","Evo",suplier1);
+        Repair repair= new Repair(1L,null,null,new Date(),3000,new HashSet<>());
+        RepaitItem repaitItem1= new RepaitItem(1L,null,part1);
+        Car car= new Car(1L,"Fiat","Evo","BG231EE","Dizel",80,null,new HashSet<>());
+        repair.setCar(car);
+        Set<RepaitItem> repaitItemSet= new HashSet<>();
+        repaitItemSet.add(repaitItem1);
+        repair.setItems(repaitItemSet);
+        Mockito.when(repairItemRepository.findById(repaitItem1.getRepaiItemId())).thenReturn(Optional.of(repaitItem1));
+        Mockito.when(repairRepository.findById(repair.getRepairID())).thenReturn(Optional.of(repair));
+
         assertThrows(Exception.class,()->repairItemService.addRepairForRepairItem(repaitItem1.getRepaiItemId(),repair.getRepairID()));
 
     }

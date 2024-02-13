@@ -83,7 +83,7 @@ public class Suplier {
      * @throws IllegalArgumentException ako je naziv prazan String ili null.
      */
     public void setName(String name) {
-        if(name!=null && name.isEmpty() ) {
+        if(name!=null && !name.isEmpty() ) {
             this.name = name;
         }
         else{
