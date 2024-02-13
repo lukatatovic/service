@@ -4,6 +4,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -64,5 +66,18 @@ class SuplierTest {
     @Test
     void setPhoneNumberEmpty() {
         assertThrows(IllegalArgumentException.class,()->suplier.setPhoneNumber(""));
+    }
+    @ParameterizedTest
+    @CsvSource({
+            "1,Tifa,Adresa 1,0694173942",
+            "2,Naultre,Adresa 2,0694827193"
+
+    })
+    void parameterizedConstrictor(long suplierId, String name, String adress, String phoneNumber){
+        suplier= new Suplier(suplierId,name,adress,phoneNumber);
+        assertEquals(suplierId,suplier.getSuplierId());
+        assertEquals(name,suplier.getName());
+        assertEquals(adress,suplier.getAdress());
+        assertEquals(phoneNumber,suplier.getPhoneNumber());
     }
 }
