@@ -131,4 +131,5 @@ public class Suplier {
             throw new IllegalArgumentException("Broj telefona ne moze biti prazan");
         }
     }
+    //kom
 }
