@@ -60,9 +60,7 @@ public class RepairItemService {
            throw new Exception("Ne postoji deo sa datim ID-jem");
        }
        Optional<RepaitItem> optionalRepaitItem= repairItemRepository.findByPart(optionalPart.get());
-       if(optionalRepaitItem.isPresent()){
-           throw new Exception("Vec postoji zadata stavka");
-       }
+
        Part part=optionalPart.get();
        repaitItem.setPart(part);
        return repairItemRepository.save(repaitItem);
