@@ -102,15 +102,9 @@ public class Repair {
      * Postavlja servisera na zadatu vrednost.
      *
      * @param servicer serviser zaduzen za popravku.
-     * @throws IllegalArgumentException ako je serviser null.
      */
     public void setServicer(Servicer servicer) {
-        if(servicer!=null){
         this.servicer = servicer;
-        }else {
-            throw new IllegalArgumentException("Serviser ne sme biti null");
-        }
-
     }
     /**
      * Vraca automobil koji se popravlja.
@@ -123,14 +117,9 @@ public class Repair {
      * Postavlja automobil na zadatu vrednost.
      *
      * @param car automobil koji se popravlja.
-     * @throws IllegalArgumentException ako je automobil null.
      */
     public void setCar(Car car) {
-        if(car!=null){
             this.car = car;
-        }else {
-            throw new IllegalArgumentException("Automobil ne sme biti null");
-        }
     }
     /**
      * Vraca datum popravke.
@@ -184,13 +173,8 @@ public class Repair {
      * Postavlja stavke popravke na zadatu vrednost.
      *
      * @param items kao skup stavki popravke.
-     * @throws IllegalArgumentException ako su skup stavki popravke null.
      */
     public void setItems(Set<RepaitItem> items) {
-        if(items!=null && !items.isEmpty()) {
             this.items = items;
-        }else {
-            throw new IllegalArgumentException("Mora postojati bar 1 stavka popravke");
-        }
     }
 }

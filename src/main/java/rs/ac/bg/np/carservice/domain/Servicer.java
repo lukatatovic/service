@@ -106,7 +106,7 @@ public class Servicer {
      * @throws IllegalArgumentException ako je ime prazan String ili null.
      */
     public void setName(String name) {
-        if(!(name.isEmpty()) && name !=null ){
+        if(name!=null &&!(name.isEmpty())  ){
             this.name = name;
         }else {
             throw new IllegalArgumentException("Ime ne sme biti prazno");
@@ -126,7 +126,7 @@ public class Servicer {
      * @throws IllegalArgumentException ako je prezime prazan String ili null.
      */
     public void setSurname(String surname) {
-        if(!surname.isEmpty() && surname !=null){
+        if(surname!=null && !surname.isEmpty() ){
             this.surname = surname;
         }else{
             throw new IllegalArgumentException("Prezime ne sme biti prazno");
@@ -146,7 +146,6 @@ public class Servicer {
      * Postavlja servis u kojem serviser radi na zadatu vrednost.
      *
      * @param service servis u kojem serviser radi
-     * @throws IllegalArgumentException ako je servis null.
      */
     public void setService(Service service) {
             this.service = service;
@@ -162,14 +161,9 @@ public class Servicer {
 
     /**
      * Postavlja popravke na zadaty vrednost.
-     * @param repairs skup popravki koje je serviser izvrsio
-     * @throws IllegalArgumentException ako su popravke null.
+     * @param repairs skup popravki koje je serviser izvrsio.
      */
     public void setRepairs(Set<Repair> repairs) {
-        if(repairs!=null) {
             this.repairs = repairs;
-        }else {
-            throw new IllegalArgumentException("Popravke ne mogu biti null");
-        }
     }
 }

@@ -88,7 +88,8 @@ public class RepairService {
         car.getRepairs().add(repair);
         servicerRepository.save(servicer);
         carRepository.save(car);
-        return repairRepository.save(repair);
+        repairRepository.save(repair);
+        return repair;
     }
 
     /**
