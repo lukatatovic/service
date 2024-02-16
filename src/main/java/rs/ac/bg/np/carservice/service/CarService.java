@@ -44,7 +44,7 @@ public class CarService {
      * Novi automobil se cuva u bazi podataka.
      * @param car automobil koji se treba perzistirati.
      * @return perzistirani automobil.
-     * @throws Exception ako automobil sa istom markom, brendom i brojem konjskih snaga postoji u bazi podataka.
+     * @throws Exception ako automobil sa istim registarskim tablicama postoji u bazi podataka.
      */
     public Car addNewCar(Car car) throws Exception{
         Optional<Car> optionalCar= carRepository.findCarByLicensePlates(car.getLicensePlates());
