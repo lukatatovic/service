@@ -1,6 +1,9 @@
 package rs.ac.bg.np.carservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.Objects;
+
 /**
  * Entitet u bazi podataka/domenska klasa dobavljaca
  *
@@ -131,5 +134,41 @@ public class Suplier {
             throw new IllegalArgumentException("Broj telefona ne moze biti prazan");
         }
     }
-    //kom
+    /**
+     * Poredi dva dobavljaca po ID-ju.
+     * @param o koji predstavlja dobavljaca.
+     * @return
+     * <ul>
+     *      <li> true  - ako je suplierId oba dobavljaca isti ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Suplier</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Suplier suplier = (Suplier) o;
+        return suplierId == suplier.suplierId;
+    }
+    /**
+     * Izracunava hash code na osnovu suplierId.
+     *
+     * @return hash code na osnovu suplierId.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(suplierId);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa dobavljaca kao String.
+     */
+    @Override
+    public String toString() {
+        return "Suplier{" +
+                "name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

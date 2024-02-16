@@ -116,4 +116,23 @@ class OwnerTest {
 
 
     }
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,true",
+            "2,1,false"
+    })
+    void equalsTest(long id1,long id2,boolean equal) {
+        Owner owner2= new Owner();
+        owner.setOwnerID(id1);
+        owner2.setOwnerID(id2);
+        assertEquals(equal,owner.equals(owner2));
+
+    }
+    @Test
+    void testToString(){
+        owner= new Owner(1,"Luka","Tatovic","0687291938",null);
+        assertTrue(owner.toString().contains("Luka"));
+        assertTrue(owner.toString().contains("Tatovic"));
+        assertTrue(owner.toString().contains("0687291938"));
+    }
 }

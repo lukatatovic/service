@@ -132,4 +132,16 @@ public class RepaitItem {
     public int hashCode() {
         return Objects.hash(repaiItemId);
     }
+    /**
+     * toString metoda
+     * @return vrednosti atributa stavke popravke kao String.
+     */
+    @Override
+    public String toString() {
+        return "RepaitItem{" +
+                "repaiItemId=" + repaiItemId +
+                ", repairId=" + repair.getRepairID() +
+                ", part=" + part +
+                '}';
+    }
 }

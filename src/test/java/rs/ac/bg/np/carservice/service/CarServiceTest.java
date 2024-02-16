@@ -59,10 +59,10 @@ class CarServiceTest {
         Owner owner= new Owner(1L,"Luka","Tatovic","06458271293",null);
         Car car= new Car(1L,"Fiat","Evo","BG231AI","Dizel",80,owner,null);
 
-        Mockito.when(carRepository.findCarByBrandAndModelAndHorsePower(car.getBrand(), car.getModel(), car.getHorsePower())).thenReturn(Optional.of(car));
+        Mockito.when(carRepository.findCarByLicensePlates(car.getLicensePlates())).thenReturn(Optional.of(car));
 
         assertThrows(Exception.class,()->{carService.addNewCar(car);});
-        Mockito.verify(carRepository,Mockito.times(1)).findCarByBrandAndModelAndHorsePower(car.getBrand(), car.getModel(), car.getHorsePower());
+        Mockito.verify(carRepository,Mockito.times(1)).findCarByLicensePlates(car.getLicensePlates());
     }
 
     @Test

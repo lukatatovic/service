@@ -87,4 +87,25 @@ class RepaitItemTest {
         rp.setRepaiItemId(id1);
         assertEquals(equal,rp.equals(rp2));
     }
+    @Test
+    void testToString(){
+        rp.setRepaiItemId(1);
+        Repair repair= new Repair();
+        repair.setRepairID(4);
+        Part part= new Part();
+        rp.setRepair(repair);
+        part.setName("Auspuh");
+        part.setPrice(1000);
+        part.setBrand("Fiat");
+        part.setModel("Evo");
+        rp.setPart(part);
+        assertTrue(rp.toString().contains("1"));
+        assertTrue(rp.toString().contains("4"));
+        assertTrue(rp.toString().contains("Auspuh"));
+        assertTrue(rp.toString().contains("1000"));
+        assertTrue(rp.toString().contains("Fiat"));
+        assertTrue(rp.toString().contains("Evo"));
+
+
+    }
 }

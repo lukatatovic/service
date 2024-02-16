@@ -47,7 +47,7 @@ public class CarService {
      * @throws Exception ako automobil sa istom markom, brendom i brojem konjskih snaga postoji u bazi podataka.
      */
     public Car addNewCar(Car car) throws Exception{
-        Optional<Car> optionalCar= carRepository.findCarByBrandAndModelAndHorsePower(car.getBrand(),car.getModel(),car.getHorsePower());
+        Optional<Car> optionalCar= carRepository.findCarByLicensePlates(car.getLicensePlates());
         if(optionalCar.isPresent()){
             throw new Exception("Automobil vec postoji");
         }

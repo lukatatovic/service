@@ -170,7 +170,7 @@ public class Service {
      * @param o koji predstavlja servis.
      * @return
      * <ul>
-     *      <li> true  - ako je servidId oba servisa isti ili ako je unet isti objekat </li>
+     *      <li> true  - ako je serviceId oba servisa isti ili ako je unet isti objekat </li>
      *      <li> false - ako je unet null objekat ili ako nije klase Service</li>
      * </ul>
      */
@@ -183,12 +183,25 @@ public class Service {
     }
 
     /**
-     * Izracunava hash code na osnovu servideId.
+     * Izracunava hash code na osnovu serviceId.
      *
-     * @return hash code na osnovu servideId.
+     * @return hash code na osnovu serviceId.
      */
     @Override
     public int hashCode() {
         return Objects.hash(serviceID);
+    }
+
+    /**
+     * toString metoda
+     * @return vrednosti atributa servisa kao String.
+     */
+    @Override
+    public String toString() {
+        return "Service{" +
+                "name='" + name + '\'' +
+                ", adress='" + adress + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

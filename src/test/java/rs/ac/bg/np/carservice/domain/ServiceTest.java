@@ -95,5 +95,13 @@ class ServiceTest {
         service2.setServiceID(id2);
         assertEquals(equal,service1.equals(service2));
     }
-
+    @Test
+    void testToString(){
+        service.setName("Servis");
+        service.setAdress("Adresa");
+        service.setPhoneNumber("06392719472");
+        assertTrue(service.toString().contains("Servis"));
+        assertTrue(service.toString().contains("Adresa"));
+        assertTrue(service.toString().contains("06392719472"));
+    }
 }

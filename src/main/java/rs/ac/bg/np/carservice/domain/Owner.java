@@ -2,6 +2,7 @@ package rs.ac.bg.np.carservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.Set;
 /**
  * Entitet u bazi podataka/domenska klasa vlasnika.
@@ -160,5 +161,42 @@ public class Owner {
      */
     public void setCars(Set<Car> cars) {
             this.cars = cars;
+    }
+    /**
+     * Poredi dva vlasnika po ID-ju.
+     * @param o koji predstavlja vlasnika.
+     * @return
+     * <ul>
+     *      <li> true  - ako je ownerId oba vlasnika isti ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Owner</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Owner owner = (Owner) o;
+        return ownerID == owner.ownerID;
+    }
+    /**
+     * Izracunava hash code na osnovu ownerId.
+     *
+     * @return hash code na osnovu ownerId.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(ownerID);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa vlasnika kao String.
+     */
+    @Override
+    public String toString() {
+        return "Owner{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
 }

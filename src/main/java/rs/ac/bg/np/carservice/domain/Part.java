@@ -1,6 +1,9 @@
 package rs.ac.bg.np.carservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.util.Objects;
+
 /**
  * Entitet u bazi podataka/domenska klasa dela
  *
@@ -181,4 +184,43 @@ public class Part {
     public void setSuplier(Suplier suplier) {
             this.suplier = suplier;
     }
+    /**
+     * Poredi dva dela po ID-ju.
+     * @param o koji predstavlja deo.
+     * @return
+     * <ul>
+     *      <li> true  - ako je partId oba dela ista ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Part</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Part part = (Part) o;
+        return partID == part.partID;
+    }
+    /**
+     * Izracunava hash code na osnovu partId.
+     *
+     * @return hash code na osnovu partId.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(partID);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa dela kao String.
+     */
+    @Override
+    public String toString() {
+        return "Part{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                '}';
+    }
 }
+

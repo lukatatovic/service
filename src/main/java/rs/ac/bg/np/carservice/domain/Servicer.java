@@ -2,6 +2,7 @@ package rs.ac.bg.np.carservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.Set;
 /**
  * Entitet u bazi podataka/domenska klasa servisera.
@@ -165,5 +166,41 @@ public class Servicer {
      */
     public void setRepairs(Set<Repair> repairs) {
             this.repairs = repairs;
+    }
+    /**
+     * Poredi dva servisera po ID-ju.
+     * @param o koji predstavlja servisera.
+     * @return
+     * <ul>
+     *      <li> true  - ako je servicerId oba servisera isti ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Servicer</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Servicer servicer = (Servicer) o;
+        return servicerID == servicer.servicerID;
+    }
+    /**
+     * Izracunava hash code na osnovu servicerId.
+     *
+     * @return hash code na osnovu servicerId.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(servicerID);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa servisera kao String.
+     */
+    @Override
+    public String toString() {
+        return "Servicer{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                '}';
     }
 }

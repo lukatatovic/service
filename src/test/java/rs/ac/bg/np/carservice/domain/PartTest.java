@@ -108,4 +108,27 @@ class PartTest {
         assertEquals(model,part.getModel());
         assertEquals(result,part.getSuplier());
     }
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,true",
+            "2,1,false"
+    })
+    void equalsTest(long id1,long id2,boolean equal) {
+        Part part2= new Part();
+        part.setPartID(id1);
+        part2.setPartID(id2);
+        assertEquals(equal,part.equals(part2));
+    }
+    @Test
+    void testToString(){
+        part.setName("Auspuh");
+        part.setPrice(1000);
+        part.setBrand("Fiat");
+        part.setModel("Evo");
+        assertTrue(part.toString().contains("Auspuh"));
+        assertTrue(part.toString().contains("1000"));
+        assertTrue(part.toString().contains("Evo"));
+        assertTrue(part.toString().contains("Fiat"));
+        assertTrue(part.toString().contains("Evo"));
+    }
 }

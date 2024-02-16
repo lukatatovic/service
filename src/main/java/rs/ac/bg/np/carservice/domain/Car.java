@@ -2,6 +2,7 @@ package rs.ac.bg.np.carservice.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.util.Objects;
 import java.util.Set;
 /**
  * Entitet u bazi podataka/domenska klasa automobila
@@ -239,4 +240,38 @@ public class Car {
     public void setRepairs(Set<Repair> repairs) {
             this.repairs = repairs;
     }
+    /**
+     * Poredi dva automobila po registarskim tablicama.
+     * @param o koji predstavlja automobil.
+     * @return
+     * <ul>
+     *      <li> true  - ako je licencePlates oba automobila isti ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Car</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return Objects.equals(licensePlates, car.licensePlates);
+    }
+    /**
+     * Izracunava hash code na osnovu licencePlates.
+     *
+     * @return hash code na osnovu licencePlates.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(licensePlates);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa automobila kao String.
+     */
+    @Override
+    public String toString() {
+        return "Car{brand= '"+brand+"',model= '"+model+"',license plates= '"+licensePlates+"'";
+    }
+
 }

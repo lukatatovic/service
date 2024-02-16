@@ -139,4 +139,23 @@ class CarTest {
         assertEquals(result,car.getRepairs());
 
     }
+    @ParameterizedTest
+    @CsvSource({
+            "BG281EJ,BG281EJ,true",
+            "BG281EJ,NS281EJ,false"
+    })
+    void equalsTest(String pl1,String pl2,boolean equal) {
+        Car car2= new Car();
+        car.setLicensePlates(pl1);
+        car2.setLicensePlates(pl2);
+        assertEquals(equal,car.equals(car2));
+    }
+
+    @Test
+    void testToString(){
+        car= new Car(1,"Fiat","Evo","BG201RT","Benzin",80,null,null);
+        assertTrue(car.toString().contains("Fiat"));
+        assertTrue(car.toString().contains("Evo"));
+        assertTrue(car.toString().contains("BG201RT"));
+    }
 }

@@ -115,4 +115,22 @@ class ServicerTest {
         assertEquals(name,servicer.getName());
         assertEquals(surname,servicer.getSurname());
     }
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,true",
+            "2,1,false"
+    })
+    void equalsTest(long id1,long id2,boolean equal) {
+        Servicer servicer2= new Servicer();
+        servicer.setServicerID(id1);
+        servicer2.setServicerID(id2);
+        assertEquals(equal,servicer.equals(servicer2));
+    }
+    @Test
+    void testToString(){
+        servicer.setName("Luka");
+        servicer.setSurname("Tatovic");
+        assertTrue(servicer.toString().contains("Luka"));
+        assertTrue(servicer.toString().contains("Tatovic"));
+    }
 }

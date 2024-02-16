@@ -84,4 +84,24 @@ class SuplierTest {
         assertEquals(adress,suplier.getAdress());
         assertEquals(phoneNumber,suplier.getPhoneNumber());
     }
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,true",
+            "2,1,false"
+    })
+    void equalsTest(long id1,long id2,boolean equal) {
+        Suplier suplier2= new Suplier();
+        suplier.setSuplierId(id1);
+        suplier2.setSuplierId(id2);
+        assertEquals(equal,suplier.equals(suplier2));
+    }
+    @Test
+    void testToString(){
+        suplier.setName("Tifa");
+        suplier.setAdress("Adresa");
+        suplier.setPhoneNumber("0692817402");
+        assertTrue(suplier.toString().contains("Tifa"));
+        assertTrue(suplier.toString().contains("Adresa"));
+        assertTrue(suplier.toString().contains("0692817402"));
+    }
 }

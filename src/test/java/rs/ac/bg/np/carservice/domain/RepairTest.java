@@ -119,4 +119,53 @@ class RepairTest {
 
 
     }
+    @ParameterizedTest
+    @CsvSource({
+            "1,1,true",
+            "2,1,false"
+    })
+    void equalsTest(long id1,long id2,boolean equal) {
+        Repair repair2= new Repair();
+        repair.setRepairID(id1);
+        repair2.setRepairID(id2);
+        assertEquals(equal,repair.equals(repair2));
+    }
+
+    @Test
+    void testToString(){
+        Servicer servicer= new Servicer();
+        servicer.setName("Luka");
+        servicer.setSurname("Tatovic");
+        Car car= new Car();
+        car.setBrand("Fiat");
+        car.setModel("Evo");
+        car.setLicensePlates("BG231AK");
+        repair.setServicer(servicer);
+        repair.setCar(car);
+        repair.setRepairID(3);
+        repair.setPrice(1000);
+        Set<RepaitItem> items= new HashSet<>();
+        RepaitItem rp= new RepaitItem();
+        rp.setRepaiItemId(1);
+        rp.setRepair(repair);
+        Part part= new Part();
+        part.setName("Auspuh");
+        part.setPrice(1000);
+        part.setBrand("Fiat");
+        part.setModel("Evo");
+        rp.setPart(part);
+        items.add(rp);
+        repair.setItems(items);
+        assertTrue(repair.toString().contains("Luka"));
+        assertTrue(repair.toString().contains("Tatovic"));
+        assertTrue(repair.toString().contains("Fiat"));
+        assertTrue(repair.toString().contains("Evo"));
+        assertTrue(repair.toString().contains("BG231AK"));
+        assertTrue(repair.toString().contains("3"));
+        assertTrue(repair.toString().contains("1"));
+        assertTrue(repair.toString().contains("Auspuh"));
+        assertTrue(repair.toString().contains("1000"));
+
+
+    }
 }

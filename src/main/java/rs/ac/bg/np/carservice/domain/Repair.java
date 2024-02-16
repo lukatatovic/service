@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.Objects;
 import java.util.Set;
 /**
  * Entitet u bazi podataka/domenska klasa popravke
@@ -176,5 +177,43 @@ public class Repair {
      */
     public void setItems(Set<RepaitItem> items) {
             this.items = items;
+    }
+    /**
+     * Poredi dve popravke po ID-ju.
+     * @param o koji predstavlja popravku.
+     * @return
+     * <ul>
+     *      <li> true  - ako je repairId obe popravke isti ili ako je unet isti objekat </li>
+     *      <li> false - ako je unet null objekat ili ako nije klase Repair</li>
+     * </ul>
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Repair repair = (Repair) o;
+        return repairID == repair.repairID;
+    }
+    /**
+     * Izracunava hash code na osnovu repairId.
+     *
+     * @return hash code na osnovu repairId.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(repairID);
+    }
+    /**
+     * toString metoda
+     * @return vrednosti atributa popravke kao String.
+     */
+    @Override
+    public String toString() {
+        return "Repair{" +
+                "servicer=" + servicer +
+                ", car=" + car.toString() +
+                ", price=" + price +
+                ", items=" + items +
+                '}';
     }
 }
